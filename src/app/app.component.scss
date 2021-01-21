@@ -1,0 +1,37 @@
+.page-container {
+    display: grid;
+    grid-template-columns: 60px auto;
+    height: 100%;
+    padding: 0px;
+  
+    .side-bar {
+      background: #252223;
+
+      ul{
+        height: 100%;
+        li:nth-last-child(1) {
+          background-color: red;
+          cursor: pointer;
+        } 
+
+        li:nth-child(2) {
+          flex-grow: 2;
+        }
+      }
+  
+      .nav-link {
+        color: #FFF;
+        font-size: 28px;
+      }
+
+      .action {
+        font-size: 14px;
+        color: white;
+      }
+    }
+  
+    .content-container {
+      margin-top: 30px;
+    }
+  }
+  

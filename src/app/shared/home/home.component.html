@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-4 offset-md-1">
+      <div class="input-group">
+        <input mdbInput type="text" class="form-control" [(ngModel)]="searchValue" placeholder="Search by name..." (keyup)="searchByName()">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class= "fa fa-search"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="list-group users-list">
+    <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="row">
+        <div class="col col-md-2 image-col">
+          <img class="image" [src]="item.imageLink">
+        </div>
+        <div class="col col-md-8 text-col">
+          <h5 class="mb-1">{{item.firstName}} {{item.lastName}}</h5>
+          <small>Joining Date: {{item.joiningDate}}</small>
+        </div>
+        <div class="col col-md-2 actions-col">
+          <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+            <i class="fa fa-arrow-circle-right"> </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  

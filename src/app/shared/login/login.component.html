@@ -1,0 +1,50 @@
+<div class="main container">
+    <div class= "image-section">
+        <img src="../../../assets/images/logo/logo.jpg">
+    </div>
+
+    <div class = "login-form col col-6">
+        <div class = "app-title col col-md-5">
+            <span>AbhiOshi Engineering</span>
+        </div>
+        <div class="form col">
+
+          <ng-container>
+            <mdb-error *ngIf="invalidLogin">Invalid Credentials</mdb-error>
+          </ng-container>
+
+            <form class="create-form" [formGroup]="userForm" (ngSubmit)="handleLogin(userForm.value)">
+  
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col col-md-6">
+    
+                    <input mdbInput mdbValidate placeholder="Username" class="form-control" formControlName="userName">
+                  <ng-container *ngFor="let validation of validation_messages.userName">
+                    <mdb-error *ngIf="userForm.get('userName').hasError(validation.type) && (userForm.get('userName').dirty || userForm.get('userName').touched)">{{validation.message}}</mdb-error>
+                  </ng-container>
+                </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                      <div class="col col-md-6">
+      
+                      <input mdbInput type="password" mdbValidate placeholder="Password" class="form-control" formControlName="password">
+                    <ng-container *ngFor="let validation of validation_messages.password">
+                      <mdb-error *ngIf="userForm.get('password').hasError(validation.type) && (userForm.get('password').dirty || userForm.get('password').touched)">{{validation.message}}</mdb-error>
+                    </ng-container>
+                  </div>
+                    </div>
+                  </div>
+
+                  <div class="row submit-button-container">
+                    <div class="col col-md-4">
+                      <button mdbBtn class="submit-button" color="primary" type="submit">Login</button>
+                    </div>
+                  </div>  
+            </form>     
+        </div>
+    </div> 
+</div>

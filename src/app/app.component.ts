@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'emsAngular';
+
+  constructor(public authService: AuthService, private router: Router) {}
+
+  handleLogout() {
+    this.authService.logout();
+    this.router.navigate(['']);
+  }
 }

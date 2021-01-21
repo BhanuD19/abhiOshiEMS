@@ -1,0 +1,62 @@
+<div class="payslip-generate-page">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Generate Payslip</li>
+        </ol>
+    </nav>
+    <div class="page-content">
+        <div class="row">
+            <div class="col col-md-4">
+                <img class="img-avatar" [src]="">
+            </div>
+            <div class="col col-md-8">
+
+
+                <form class="payslip-form" [formGroup]="payslipForm" (ngSubmit)="onSubmit(payslipForm.value)" *ngIf= "payslipForm">
+
+                    
+                    <div class="form-group">
+
+                                <input mdbInput mdbValidate placeholder="Enter total working days" class="form-control" formControlName="totalDays">
+                                <ng-container *ngFor="let validation of validation_messages.totalDays">
+                                    <mdb-error *ngIf="payslipForm.get('totalDays').hasError(validation.type) && (payslipForm.get('totalDays').dirty || payslipForm.get('totalDays').touched)">
+                                        {{validation.message}}</mdb-error>
+                                </ng-container>
+                    </div>
+
+
+                    <div class="form-group">
+
+                                <input mdbInput mdbValidate placeholder="Enter salary amount" class="form-control" formControlName="salary">
+                                <ng-container *ngFor="let validation of validation_messages.salary">
+                                    <mdb-error
+                                        *ngIf="payslipForm.get('salary').hasError(validation.type) && (payslipForm.get('salary').dirty || payslipForm.get('salary').touched)">
+                                        {{validation.message}}</mdb-error>
+                                </ng-container>
+                            
+                    </div>
+
+
+                    <div class="form-group">
+                    
+                                <input mdbInput placeholder="Enter bonus amount" class="form-control" formControlName="bonus">
+                    </div>
+
+
+                    <div class="row submit-button-container">
+                        <div class="isEditing row">
+                            <div class="col-md-6">
+                                <button mdbBtn class="submit-button" color="primary" type="submit"
+                                    (click)="onSubmit(payslipForm.value)">Generate Payslip</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button mdbBtn class="cancel-button" color="warn" type="button"
+                                    (click)="cancel()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

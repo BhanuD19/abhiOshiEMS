@@ -1,0 +1,78 @@
+<div class="edit-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+      </ol>
+    </nav>
+    <div class="page-content">
+      <div class="row">
+        <div class="col col-md-4">
+          <img class="img-avatar" [src]="">
+          <button mdbBtn class="change-img-button" color="primary">Change Avatar</button>
+        </div>
+        <div class="col col-md-8">
+  
+          <form class="edit-form" [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+  
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+
+                <input mdbInput mdbValidate placeholder="Name" class="form-control" formControlName="firstName">
+              <ng-container *ngFor="let validation of validation_messages.firstName">
+                <mdb-error *ngIf="userForm.get('firstName').hasError(validation.type) && (userForm.get('firstName').dirty || userForm.get('firstName').touched)">{{validation.message}}</mdb-error>
+              </ng-container>
+            </div>
+        
+  
+            <div class="col">
+                <input mdbInput placeholder="Surname" class="form-control" formControlName="lastName">
+            </div>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <input mdbInput mdbValidate type="email" placeholder="Email" class="form-control" formControlName="email">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <mdb-error *ngIf="userForm.get('email').hasError(validation.type) && (userForm.get('email').dirty || userForm.get('email').touched)">{{validation.message}}</mdb-error>
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+                <input mdbInput mdbValidate type="text" placeholder="Mobile Number" class="form-control" formControlName="mobileNumber">
+              <ng-container *ngFor="let validation of validation_messages.mobileNumber">
+                <mdb-error *ngIf="userForm.get('mobileNumber').hasError(validation.type) && (userForm.get('mobileNumber').dirty || userForm.get('mobileNumber').touched)">{{validation.message}}</mdb-error>
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+              <input mdbInput mdbValidate type="date" placeholder="Joining Date" class="form-control" formControlName="joiningDate">
+            <ng-container *ngFor="let validation of validation_messages.joiningDate">
+              <mdb-error *ngIf="userForm.get('joiningDate').hasError(validation.type) && (userForm.get('joiningDate').dirty || userForm.get('joiningDate').touched)">{{validation.message}}</mdb-error>
+            </ng-container>
+          </div>
+  
+            <div class="row submit-button-container">
+              <div class= "isEditing row" *ngIf= "isEditing">
+              <div class="col-md-6">
+                <button mdbBtn class="submit-button" color="primary" type="submit" (click)="onSubmit(userForm.value)">Save</button>
+              </div>
+              <div class="col-md-6">
+                <button mdbBtn class="delete-button" color="warn" type="button" (click)="delete()">Delete</button>
+              </div>
+            </div>
+            <div class = "notEditing row" *ngIf= "!isEditing">
+              <div class="col-md-6">
+                <button mdbBtn class="submit-button" color="primary" (click)="generatePayslip()">Generate payslip</button>
+              </div>
+              <div class="col-md-6">
+                <button mdbBtn class="delete-button" color="warn" type="button" (click)="edit()">Edit details</button>
+              </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

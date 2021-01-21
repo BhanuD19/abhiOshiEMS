@@ -1,0 +1,45 @@
+.main {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: flex-end;
+
+    .image-section {
+        width: 100%;
+        height: auto;
+        background: whitesmoke;
+
+        img {
+            width: 320px;
+            height: 320px;
+        }        
+    }
+
+    .login-form {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        .app-title {
+            margin-left: 8rem;
+            margin-bottom: 0.3rem;
+
+            span {
+                font-weight: 600;
+                font-size: medium;
+                line-height: 6rem;
+            }
+        }
+
+        .form-group {
+            .col {
+                margin-left: 8rem;
+            }
+        }
+        .submit-button-container {
+            .col {
+                margin-left: 8rem;
+            }
+        }
+    }
+}
