@@ -11,6 +11,23 @@
             </div>
             <div class="col col-md-8">
 
+                    <div class="col empDetails" *ngIf = "item">    
+                    <span class="emp-details">Name of Employee: {{item.firstName}}  {{item.lastName}}</span>
+
+                </div>
+
+
+                    <div class="col empDetails"  *ngIf = "item">    
+                    <span class="emp-details">Mobile Number: {{item.mobileNumber}}</span>
+                </div>
+
+
+
+                    <div class="col empDetails"  *ngIf = "lastPayslipInit()">    
+                    <span class="emp-details">Last Payslip Generated on: {{item.lastPayslip}}</span>
+</div>
+
+
 
                 <form class="payslip-form" [formGroup]="payslipForm" (ngSubmit)="onSubmit(payslipForm.value)" *ngIf= "payslipForm">
 

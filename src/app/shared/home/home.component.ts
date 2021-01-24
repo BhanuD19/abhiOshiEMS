@@ -43,6 +43,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/details/'+ item.id]);
   }
 
+  viewPayslip(item) {
+    console.log(item.id)
+    this.router.navigate(['/payslip/'+ item.id]);
+  }
+
   capitalizeFirstLetter(value){
     return value.charAt(0).toUpperCase() + value.slice(1);
   }

@@ -18,6 +18,9 @@ export class FirebaseService {
     return this.db.collection('users').doc(userKey).snapshotChanges();
   }
 
+  updatePayslip(userKey, value) {
+    const update= this.db.collection('users').doc(userKey).update({lastPayslip: value});
+  }
   updateUser(userKey, value){
     value.nameToSearch = value.firstName.toLowerCase();
     return this.db.collection('users').doc(userKey).set(value);
